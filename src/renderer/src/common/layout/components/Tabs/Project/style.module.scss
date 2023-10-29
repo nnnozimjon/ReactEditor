@@ -1,0 +1,56 @@
+@import '../../../../colors/colors.scss';
+
+.projectTab {
+  position: relative;
+  overflow: hidden;
+  overflow-x: hidden;
+  max-height: 224px;
+}
+
+.container {
+  padding: 0px 10px;
+  border-bottom: 2px solid $dark-granite-800;
+  top: 0;
+  width: 100%;
+  position: sticky;
+  background-color: $dark-granite;
+
+  button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-right: 1px solid $dark-granite-800;
+  }
+}
+
+.foldersContainer {
+  height: 210px;
+  display: flex;
+
+  .routeContainer {
+    background-color: $dark-granite;
+    width: 30%;
+    border-right: 2px solid $dark-ebony;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 5px 0px;
+
+    .folderStyle {
+      padding: 0px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .activeFolder {
+      background-color: $dark-cerulean-900;
+    }
+  }
+
+  .foldersContainer {
+    width: 100%;
+    background-color: $dark-granite;
+  }
+}

@@ -1,0 +1,8 @@
+@import '../../../colors/colors.scss';
+
+.container {
+  width: 30%;
+  height: calc(100vh - 42px);
+  background-color: $dark-granite;
+  border-left: 2px solid $dark-ebony;
+}

@@ -1,0 +1,10 @@
+@import '../../../colors/colors.scss';
+
+.container {
+  width: 100%;
+  background-color: $dark-licorice;
+  border-bottom: 2px solid $dark-ebony;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}

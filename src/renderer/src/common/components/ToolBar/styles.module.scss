@@ -1,0 +1,16 @@
+@import '../../colors/colors.scss';
+
+.container {
+  height: 30px !important;
+  background-color: $dark-granite;
+  border: 2px solid $dark-licorice;
+  border-radius: 4px;
+  display: flex;
+
+  .tool {
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

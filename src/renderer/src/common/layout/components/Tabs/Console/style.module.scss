@@ -1,0 +1,48 @@
+@import '../../../../colors/colors.scss';
+
+.consoleTab {
+  position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 224px;
+}
+
+.container {
+  border-bottom: 2px solid $dark-granite-800;
+  top: 0;
+  width: 100%;
+  position: sticky;
+  background-color: $dark-granite;
+
+  button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-right: 1px solid $dark-granite-800;
+    padding: 2px 8px;
+  }
+
+  .activeTabButton {
+    background-color: $dark-granite-hover;
+  }
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .message {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .checkedMessage {
+    background-color: #2c5d87;
+  }
+}

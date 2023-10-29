@@ -1,0 +1,37 @@
+@import '../../colors/colors.scss';
+
+.container {
+  background-color: $dark-granite-800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .tabs {
+    display: flex;
+    gap: 2px;
+  }
+
+  .textContainer {
+    background-color: $dark-granite;
+    padding: 5px 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .borderTop {
+    border-top: 2px solid $dark-cerulean-900;
+  }
+
+  .settings {
+    padding: 0px 10px;
+  }
+}
+
+.view {
+  height: 100%;
+}
