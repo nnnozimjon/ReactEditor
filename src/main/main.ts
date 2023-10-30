@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import fs from 'fs';
 
 class AppUpdater {
   constructor() {
@@ -26,9 +27,52 @@ class AppUpdater {
 let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
+  function getDirectoryStructure(directoryPath: any) {
+    const items = fs.readdirSync(directoryPath);
+
+    const structure: any = items.map((item) => {
+      const itemPath = path.join(directoryPath, item);
+      const stats = fs.statSync(itemPath);
+
+      if (stats.isDirectory()) {
+        return {
+          name: item,
+          type: 'dir',
+          path: itemPath,
+          subfolders: getDirectoryStructure(itemPath),
+        };
+      } else {
+        return {
+          name: item,
+          type: 'file',
+          path: itemPath,
+        };
+      }
+    });
+
+    return structure;
+  }
+  // function getDirectoryStructure(path: any) {
+  //   const items = fs.readdirSync(path);
+
+  //   const structure: any = items.map((item) => {
+  //     const itemPath = `${path}/${item}`;
+  //     const stats = fs.statSync(itemPath);
+
+  //     if (stats.isDirectory()) {
+  //       return {
+  //         name: item,
+  //         subfolders: getDirectoryStructure(itemPath),
+  //       };
+  //     } else {
+  //       return null;
+  //     }
+  //   });
+
+  //   return structure.filter((item: any) => item !== null);
+  // }
+
+  event.reply('ipc-example', getDirectoryStructure(arg));
 });
 
 if (process.env.NODE_ENV === 'production') {

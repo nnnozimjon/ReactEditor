@@ -1,6 +1,18 @@
-import IIcon from './icon'
+import IIcon from './icon';
 
 const list: IIcon.svgList = {
+  bigFolder: (
+    <>
+      <svg width="72" height="60" viewBox="0 0 72 60">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M6 0C2.68629 0 0 2.68629 0 6V12V18V54C0 57.3137 2.68629 60 6 60H66C69.3137 60 72 57.3137 72 54V18C72 14.6863 69.3137 12 66 12H38L30 0H6Z"
+          fill="currentColor"
+        />
+      </svg>
+    </>
+  ),
   hierarchy: (
     <svg width="11" height="9" viewBox="0 0 11 9">
       <path
@@ -389,6 +401,13 @@ const list: IIcon.svgList = {
       </svg>
     </>
   ),
-}
+  arrowRight: (
+    <>
+      <svg width="8" height="9" viewBox="0 0 8 9">
+        <path d="M7.5 4.5L0 9L-3.93402e-07 0L7.5 4.5Z" fill="currentColor" />
+      </svg>
+    </>
+  ),
+};
 
-export default list
+export default list;
