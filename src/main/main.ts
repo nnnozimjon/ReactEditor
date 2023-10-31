@@ -42,7 +42,9 @@ ipcMain.on('ipc-example', async (event, arg) => {
           subfolders: getDirectoryStructure(itemPath),
         };
       } else {
+        const ext = path.parse(item);
         return {
+          ext: ext.ext,
           name: item,
           type: 'file',
           path: itemPath,
@@ -52,25 +54,6 @@ ipcMain.on('ipc-example', async (event, arg) => {
 
     return structure;
   }
-  // function getDirectoryStructure(path: any) {
-  //   const items = fs.readdirSync(path);
-
-  //   const structure: any = items.map((item) => {
-  //     const itemPath = `${path}/${item}`;
-  //     const stats = fs.statSync(itemPath);
-
-  //     if (stats.isDirectory()) {
-  //       return {
-  //         name: item,
-  //         subfolders: getDirectoryStructure(itemPath),
-  //       };
-  //     } else {
-  //       return null;
-  //     }
-  //   });
-
-  //   return structure.filter((item: any) => item !== null);
-  // }
 
   event.reply('ipc-example', getDirectoryStructure(arg));
 });

@@ -3,6 +3,7 @@ import styles from './style.module.scss';
 import Icon from '../../../../components/Icon';
 import { classNames } from '../../../../utils';
 import Folder from './components/folder';
+import { getIconForExtension } from './project.lib';
 
 const ProjectTab = () => {
   const [activeFolder, setActiveFolder] = useState<string>(
@@ -10,6 +11,7 @@ const ProjectTab = () => {
   );
   const [folders, setFolders] = useState<any>([]);
   const [subFolder, setSubFolder] = useState<any>([]);
+  const [activeSubHover, setActiveSubHover] = useState<number>(0);
   const [loading, setLoadoing] = useState(false);
 
   useEffect(() => {
@@ -63,10 +65,16 @@ const ProjectTab = () => {
         <div className={styles.foldersContainer}>
           {subFolder?.map((folder: any, i: number) => (
             <div
-              onClick={() => setActiveFolder(folder.path)}
-              className={styles.subFoldersContainer}
+              onClick={() => {
+                setActiveSubHover(i);
+              }}
+              onDoubleClick={() => setActiveFolder(folder.path)}
+              className={classNames([
+                styles.subFoldersContainer,
+                activeSubHover === i && styles.subActive,
+              ])}
             >
-              <Icon name="bigFolder" />
+              {getIconForExtension(folder.ext)}
               {folder.name}
             </div>
           ))}

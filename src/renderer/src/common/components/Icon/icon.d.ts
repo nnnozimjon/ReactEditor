@@ -31,6 +31,16 @@ declare namespace IIcon {
     code: React.ReactNode;
     arrowRight: React.ReactNode;
     bigFolder: React.ReactNode;
+
+    // files
+    scssFile: React.ReactNode;
+    jsFile: React.ReactNode;
+    cssFile: React.ReactNode;
+    htmlFile: React.ReactNode;
+    tsFile: React.ReactNode;
+    tsxFile: React.ReactNode;
+    gitFile: React.ReactNode;
+    jsonFile: React.ReactNode;
   }
 
   type name = keyof svgList;

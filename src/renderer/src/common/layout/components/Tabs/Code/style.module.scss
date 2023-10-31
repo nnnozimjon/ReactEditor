@@ -1,2 +1,48 @@
+@import '../../../../colors/colors.scss';
+
 .container {
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  overflow-y: scroll;
+
+  .side {
+    background-color: $dark-granite-800;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    gap: 10px;
+  }
+
+  .codeView {
+    position: relative;
+    width: 100%;
+
+    .codeField {
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      padding: 10px 0px;
+      border: none;
+      overflow: auto;
+      overflow-y: scroll;
+
+      line-height: 26px;
+
+      // position: absolute;
+      // // z-index: -1;
+      // top: 0;
+      // right: 0;
+      // bottom: 0;
+      // left: 0;
+      // resize: none;
+      // background: transparent;
+      // color: transparent;
+      // user-select: none;
+      // outline: none;
+    }
+  }
 }
