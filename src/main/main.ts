@@ -58,6 +58,38 @@ ipcMain.on('ipc-example', async (event, arg) => {
   event.reply('ipc-example', getDirectoryStructure(arg));
 });
 
+ipcMain.on('ipc-filesFolders', async (event, arg) => {
+  function getDirectoryStructure(directoryPath: any) {
+    const items = fs.readdirSync(directoryPath);
+
+    const structure: any = items.map((item) => {
+      const itemPath = path.join(directoryPath, item);
+      const stats = fs.statSync(itemPath);
+
+      if (stats.isDirectory()) {
+        return {
+          name: item,
+          type: 'dir',
+          path: itemPath,
+          subfolders: getDirectoryStructure(itemPath),
+        };
+      } else {
+        const ext = path.parse(item);
+        return {
+          ext: ext.ext,
+          name: item,
+          type: 'file',
+          path: itemPath,
+        };
+      }
+    });
+
+    return structure;
+  }
+
+  event.reply('ipc-filesFolders', getDirectoryStructure(arg));
+});
+
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();

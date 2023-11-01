@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const SceneTab = () => {
-  return <div> scene tab </div>
-}
+  const htmlContent = <div>scene code</div>;
 
-export default SceneTab
+  return <div id="scene">{htmlContent}</div>;
+};
+
+export default SceneTab;

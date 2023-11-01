@@ -48,6 +48,18 @@ export default class MenuBuilder {
             this.mainWindow.webContents.inspectElement(x, y);
           },
         },
+        {
+          label: 'New Folder',
+          click: () => {
+            this.mainWindow.webContents.inspectElement(x, y);
+          },
+        },
+        {
+          label: 'New File',
+          click: () => {
+            this.mainWindow.webContents.inspectElement(x, y);
+          },
+        },
       ]).popup({ window: this.mainWindow });
     });
   }
