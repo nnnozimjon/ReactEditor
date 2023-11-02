@@ -31,6 +31,8 @@ declare namespace IIcon {
     code: React.ReactNode;
     arrowRight: React.ReactNode;
     bigFolder: React.ReactNode;
+    plus: React.ReactNode;
+    tag: React.ReactNode;
 
     // files
     scssFile: React.ReactNode;
